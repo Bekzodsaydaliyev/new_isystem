@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Article{% endblock %}
+
+{% block content %}
+    <form method="post" enctype="multipart/form-data">
+<!--        <div>-->
+<!--            <label for="title">Title</label>-->
+<!--                <br>-->
+<!--            <input type="text" id="title" name="title">-->
+<!--        </div><br>-->
+<!--        <div>-->
+<!--            <label >Image</label>-->
+<!--            <input type="image" id="image">-->
+<!--        </div>-->
+<!--        <div style="margin-top: 20px">-->
+<!--                <label for="content" >Content</label><br>-->
+<!--                <textarea name="content" id="content" cols="60" rows="10" aria-label=".form-control-lg example"></textarea>-->
+<!--        </div>-->
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div>
+            <button type="submit" class="btn btn-outline-primary" >Edit</button>
+        </div>
+    </form>
+{% endblock %}
+
+<!--<button type="button" class="btn btn-primary">Primary</button>-->

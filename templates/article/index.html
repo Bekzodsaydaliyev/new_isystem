@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}ARTICLE{% endblock %}
+
+{% block content %}
+<p>
+    <a href="{% url 'articles:create' %}">Add new article</a>
+</p>
+<div class="search-div">
+<form class="search-form" action="{% url 'articles:list' %}">
+    <input type= "search" name="q" class="search" placeholder="search..." autocomplete="off" >
+    <input type="submit" value="search">
+</form>
+</div>
+<div>
+    <ol class="article_list">
+        {% for object in objects_list %}
+            <li>
+                <a href="{% url 'articles:detail' object.slug %}">{{ object.title }}</a>
+                <a style="color: blue">({{ object.id }})</a>
+                <a href="{% url 'articles:edit' object.slug %}">Edit</a>
+                <a style="color: red" href="{% url 'articles:delete' object.slug %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ol>
+</div>
+{% endblock %}

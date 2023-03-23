@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+    <form method="post" class="login">
+    {% csrf_token %}
+
+        {{ form.as_p }}
+    <div>
+        <button type="submit">Login</button>
+    </div>
+    </form>
+    <p>
+        Agar akkauntingiz bo'lmasa, <a href="{% url 'auth:register' %}">Register</a> qismiga oting
+    </p>
+{% endblock %}

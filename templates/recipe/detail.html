@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Recipe Detail{% endblock %}
+{% block content %}
+
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{ object.title }}</h5>
+    <p class="card-text">{{ object.author }}</p>
+    <div class="button-group">
+      {% for tag in object.tags.all %}
+      <button type="button" class="btn btn-outline-dark">{{ tag.title }}</button>
+      {% endfor %}
+    </div>
+    <a href="{% url 'recipes:update' object.slug %}" class="btn btn-primary">Edit</a>
+    <a href="{% url 'recipes:delete' object.slug %}" class="btn btn-danger">Delete</a>
+  </div>
+  <div class="card-footer text-muted">
+    {{ object.created_date }}
+  </div>
+</div>
+<div class="row mt-4">
+  <!--  {% for ingredient in recipe.ingredients.all %}-->
+  <div class="col-sm-6 mb-3 mb-sm-0">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ object }}</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+    <!--    {% endfor %}-->
+  </div>
+{% endblock %}
